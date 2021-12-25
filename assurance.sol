@@ -7,21 +7,25 @@ pragma solidity >=0.7.0 <0.9.0;
  * @dev Store & retrieve value in a variable
  */
 contract abstract flightinsurance {
-    
-    int monthEnd;
-    int dayEnd;
-    int yearEnd;
+    private id;
+    private int monthEnd;
+    private int dayEnd;
+    private int yearEnd;
+    private user  user;    
+    private fly fly;
 
-    //arrayOfUser
+    
     struct user  {
         int id;
         string Familyname;
         string Firstname;
     }
+    
+    mapping (uint => user) user;
+    
 
-    user[] public users;
 
-    //list of flies
+    /*
     struct fly
     {
         int id;
@@ -32,33 +36,62 @@ contract abstract flightinsurance {
         int year ;
 
     }
-    
-    fly[] flies ;
+    */
 
-    function SearhFly()
+     //constructor
+    function flightInsurance(user, fly)
+    {
+        this.user = user;
+        this.fly = fly;
+    }
+
+    //setter for user
+    function set(fly fly) public 
+    {
+      this.fly = fly;
+    }
+
+    //getter for user
+   function get() public view returns (user) 
+   {
+      return this.user;
+   }
+
+    //getter for fly
+    function get() public view returns (fly) 
+    {
+      return this.fly;
+    }
+
+    //Search a fly 
+    function SearhFly(string departureVille, int day, int year, int month)
     {
 
 
     }
 
+    function checkContractValidity(int monthEnd, int dayEnd, int yearEnd;)
+    {
 
-    function AffectuserToFly(user, fly)
+    }
+
+    function payFly()
     {
 
     }
 }
 
-contract Classic is flight
+contract Classic is  flightinsurance
 {
 
 }
 
-contract Premium is flight
+contract Premium is  flightinsurance
 {
 
 }
 
-contract Golden is flight
+contract Golden is  flightinsurance
 {
 
 }
