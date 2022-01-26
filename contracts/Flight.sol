@@ -2,6 +2,8 @@
 
 pragma solidity >=0.7.0 <0.9.0;
 
+import './Date.sol';
+
 /**
  * @title Flight
  * @dev A flight
@@ -11,7 +13,7 @@ contract Flight {
     int id;
     string origin;
     string destination;
-    /*Date*/string date;
+    Date date;
 
     /**
      * @dev A flight
@@ -20,7 +22,7 @@ contract Flight {
      * @param _destination flight's destination
      * @param _date flight's date
      */
-    constructor(int _id, string memory _origin, string memory _destination, /*Date*/string memory _date) {
+    constructor(int _id, string memory _origin, string memory _destination, Date _date) {
         id = _id;
         origin = _origin;
         destination = _destination;
