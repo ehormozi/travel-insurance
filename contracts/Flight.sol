@@ -14,6 +14,7 @@ contract Flight {
     string origin;
     string destination;
     Date date;
+    int price;
 
     /**
      * @dev A flight
@@ -21,12 +22,14 @@ contract Flight {
      * @param _origin flights's origin
      * @param _destination flight's destination
      * @param _date flight's date
+     * @param _price flight's price
      */
-    constructor(int _id, string memory _origin, string memory _destination, Date _date) {
+    constructor(int _id, string memory _origin, string memory _destination, Date _date, int _price) {
         id = _id;
         origin = _origin;
         destination = _destination;
         date = _date;
+        price = _price;
     }
 
     //Getters
@@ -47,6 +50,10 @@ contract Flight {
         return date;
     }
 
+    function getPrice() external view returns(int) {
+        return price;
+    }
+
     //Setters
 
     function setID(int _id) external {
@@ -65,4 +72,7 @@ contract Flight {
         date = _date;
     }
 
+    function setPrice(int _price) external {
+        price = _price;
+    }
 }
