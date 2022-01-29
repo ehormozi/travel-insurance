@@ -72,7 +72,7 @@ abstract contract Insurance {
     {
         
     }
-    function checkContractValidity(Date expirationDate)
+    function checkContractValidity(Date _ate)
     {
     
     }
