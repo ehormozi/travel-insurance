@@ -68,14 +68,17 @@ abstract contract Insurance {
     
     //Search a fly 
     /*
-    function SearhFly(string departureVille, int day, int year, int month)
+    function SearhFly(string departureVille, Date departureDate)
     {
+        
     }
-    function checkContractValidity(int monthEnd, int dayEnd, int yearEnd;)
+    function checkContractValidity(Date expirationDate)
     {
+    
     }
     function payFly()
     {
+    
     }
     */
 }
