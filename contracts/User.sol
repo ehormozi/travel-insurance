@@ -8,26 +8,26 @@ pragma solidity >=0.7.0 <0.9.0;
  */
 contract User {
 
-    int private id;
+    address payable private adr;
     string private firstName;
     string private lastName;
 
     /**
      * @dev A traveler who has subscribed to the insurance
-     * @param _id user's identifier
+     * @param _adr user's address
      * @param _firstName user's firstname
      * @param _lastName user's lastname
      */
-    constructor(int _id, string memory _firstName, string memory _lastName) {
-        id = _id;
+    constructor(address payable _adr, string memory _firstName, string memory _lastName) {
+        adr = _adr;
         firstName = _firstName;
         lastName = _lastName;
     }
 
     //Getters
 
-    function getID() external view returns(int) {
-        return id;
+    function getAddress() external view returns(address payable) {
+        return adr;
     }
 
     function getFirstName() external view returns(string memory) {
@@ -40,8 +40,8 @@ contract User {
 
     //Setters
 
-    function setID(int _id) external {
-        id = _id;
+    function setAddress(address payable _adr) external {
+        adr = _adr;
     }
 
     function setFirstName(string memory _firstName) external {
@@ -51,4 +51,10 @@ contract User {
     function setLastName(string memory _lastName) external {
         lastName = _lastName;
     }
+
+    //Functions
+
+    receive() external payable {}
+
+    fallback() external payable {}
 }
