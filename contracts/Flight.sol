@@ -10,33 +10,26 @@ import './Date.sol';
  */
 contract Flight {
 
-    int id;
     string origin;
     string destination;
     Date date;
-    int price;
+    uint256 priceInEuros;
 
     /**
      * @dev A flight
-     * @param _id flights's identifier
      * @param _origin flights's origin
      * @param _destination flight's destination
      * @param _date flight's date
-     * @param _price flight's price
+     * @param _priceInEuros flight's price
      */
-    constructor(int _id, string memory _origin, string memory _destination, Date _date, int _price) {
-        id = _id;
+    constructor(string memory _origin, string memory _destination, Date _date, uint256 _priceInEuros) {
         origin = _origin;
         destination = _destination;
         date = _date;
-        price = _price;
+        priceInEuros = _priceInEuros;
     }
 
     //Getters
-
-    function getID() external view returns(int) {
-        return id;
-    }
 
     function getOrigin() external view returns(string memory) {
         return origin;
@@ -50,15 +43,11 @@ contract Flight {
         return date;
     }
 
-    function getPrice() external view returns(int) {
-        return price;
+    function getPriceInEuros() external view returns(uint256) {
+        return priceInEuros;
     }
 
     //Setters
-
-    function setID(int _id) external {
-        id = _id;
-    }
 
     function setOrigin(string memory _origin) external {
         origin = _origin;
@@ -72,7 +61,7 @@ contract Flight {
         date = _date;
     }
 
-    function setPrice(int _price) external {
-        price = _price;
+    function setPriceInEuros(uint256 _priceInEuros) external {
+        priceInEuros = _priceInEuros;
     }
 }
